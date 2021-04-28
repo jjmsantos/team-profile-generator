@@ -55,11 +55,14 @@ function teamTree() {
         choices: ["Manager", "Employee", "Engineer", "Intern"]
     }
     ])
+
+    // Role Specific questions
+
     .then(input => {
         if (input.role === "Manager") {
             inquirer.prompt([{
                 type: "input",
-                name: "officeNumber",
+                name: "office",
                 message: "What is your Office Number?",
                 validate: phonenumber => {
                     if (phonenumber) {
@@ -70,9 +73,10 @@ function teamTree() {
                     }
                 }
             }])
-            .then(ans => {
-                const initialManager = new Manager(input.name, input.email, input.eid, input.role, input.officeNumber);
+            .then(tm => {
 
+                const initialManager = new Manager(input.name, input.email, input.eid, input.role, tm.office);
+                
                 team.push(initialManager);
                 addOtherMembers();
             });
@@ -90,8 +94,8 @@ function teamTree() {
                     }
                 }
             }])
-            .then(ans => {
-                const softwareEngineer = new Engineer(input.name, input.email, input.eid, input.role, input.gitHub);
+            .then(tm => {
+                const softwareEngineer = new Engineer(input.name, input.email, input.eid, input.role, tm.gitHub);
                 team.push(softwareEngineer);
                 addOtherMembers();
             });
@@ -109,24 +113,25 @@ function teamTree() {
                     }
                 }
             }])
-            .then(ans => {
-                const rookieDev = new Intern(input.name, input.email, input.eid, input.role, input.school);
+            .then(tm => {
+                const rookieDev = new Intern(input.name, input.email, input.eid, input.role, tm.school);
                 team.push(rookieDev);
                 addOtherMembers();
             });
         } else {
             const teamMember = new Employee(input.name, input.email, input.eid, input.role);
             team.push(teamMember);
-            addOtherMembers
+            addOtherMembers();
         }
+
         function addOtherMembers () {
-            inquirer.prompt({
+            inquirer.prompt([{
                 type: "confirm",
                 name: "newEmployee",
                 message: "Would you like to add another Team Member?",
-            })
+            }])
             .then (res => {
-                if (res === true) {
+                if (res.newEmployee === true) {
                     teamTree(team);
                 } else {
                     console.log(team);
