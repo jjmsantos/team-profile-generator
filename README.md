@@ -25,7 +25,7 @@ To use this generator some steps are required to use:
 ## Usage
 
 - User will be prompted with a series of questions(All required)
-- Once all prompts are finished and complete, markdown file will be stored in the `dist` folder.
+- Once all prompts are finished and complete, `index.html` & `style.css` file will be stored in the `dist` folder.
 
 ![Screenshot of command line](./assets/screenshot.PNG "screenshot of console")
 
