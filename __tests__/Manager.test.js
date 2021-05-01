@@ -1,10 +1,6 @@
 const Manager = require('../lib/Manager');
 
-//passed test
-//const testManager = new Manager("Jeremy", "jeremy.santos1010@gmail.com", 321 , "Manager", 4165550161)
-
-//failed test
-const testManager = new Manager("je", "jeremygmail.com", "notanID" , "Intern", "notaRoom");
+const testManager = new Manager("Jeremy", "jeremy.santos1010@gmail.com", 321 , "Manager", 4165550161)
 
 test('has a name', () => {
     expect(testManager.name).toEqual(expect.any(String));

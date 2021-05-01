@@ -1,10 +1,6 @@
 const Intern = require('../lib/Intern');
 
-//passed test
 const testIntern = new Intern("Jeremy", "jeremy.santos1010@gmail.com", 321 , "Intern", "University Of Toronto");
-
-//failed test
-//const testIntern = new Intern("je", "jeremygmail.com", "notanID" , "Manager", 5550121);
 
 test('has a name', () => {
     expect(testIntern.name).toEqual(expect.any(String));
