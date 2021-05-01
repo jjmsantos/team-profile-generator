@@ -1,10 +1,12 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 
-const Employee = require("./lib/Employee");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
+
+const generatePage = require('./src/page-template')
+const writeHTML = require('./generate-site')
 
 const team = [];
 
@@ -52,7 +54,7 @@ function teamTree() {
         type: "list",
         name: "role",
         message: "What is their role in the company?",
-        choices: ["Manager", "Employee", "Engineer", "Intern"]
+        choices: ["Manager", "Engineer", "Intern"]
     }
     ])
 
@@ -99,7 +101,7 @@ function teamTree() {
                 team.push(softwareEngineer);
                 addOtherMembers();
             });
-        } else if (input.role === "Intern") {
+        } else if(input.role === "Intern") {
             inquirer.prompt ([{
                 type: "input",
                 name: "school",
@@ -118,10 +120,6 @@ function teamTree() {
                 team.push(rookieDev);
                 addOtherMembers();
             });
-        } else {
-            const teamMember = new Employee(input.name, input.email, input.eid, input.role);
-            team.push(teamMember);
-            addOtherMembers();
         }
 
         function addOtherMembers () {
@@ -134,7 +132,9 @@ function teamTree() {
                 if (res.newEmployee === true) {
                     teamTree(team);
                 } else {
-                    console.log(team);
+                    let cardsHTML = generatePage(team);
+                    writeHTML(cardsHTML);
+                    
                 }
             })
         }

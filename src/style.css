@@ -1,0 +1,58 @@
+body {
+	background-color: #90a9b7;
+}
+
+.navbar-header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	width: 100%;
+}
+
+.navbar-brand {
+	float: none;
+	font-size: 48px;
+}
+
+.navbar {
+	background: #d4aa7d;
+	color: #fff;
+}
+
+.card-header,
+.card-body {
+	background: #d4aa7d;
+}
+
+.card {
+	margin: 20px;
+	padding: 0;
+}
+
+.card.col {
+	background-color: #fff;
+}
+
+.list-group {
+	margin: 10px;
+	border: solid 2px #d2d8b3;
+}
+
+.list-group-item {
+	background-color: #272727;
+	color: #fff;
+	text-align: center;
+}
+
+h4 {
+	color: #fff;
+	font-weight: 500;
+}
+
+h4,
+h3 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
