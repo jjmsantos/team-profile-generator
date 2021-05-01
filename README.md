@@ -27,7 +27,7 @@ To use this generator some steps are required to use:
 - User will be prompted with a series of questions(All required)
 - Once all prompts are finished and complete, markdown file will be stored in the `dist` folder.
 
-![Screenshot of command line](./assets/screenshot.jpg "screenshot of console")
+![Screenshot of command line](./assets/screenshot.png "screenshot of console")
 
 ## Video Demo
 
